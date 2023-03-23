@@ -6,7 +6,7 @@ import {addSingleProductToCart} from "../../store/modules/cartSlice";
 
 const ProductDetailsPage = () => {
     const dispatch = useDispatch(); // Help you to dispatch actions, Example: dispatch(fetchProduct(id))
-    const {singleProduct} = useSelector(state => state.products); // GETS YOU THE PRODUCTS FROM THE STORE
+    const {singleProduct, isError} = useSelector(state => state.products); // GETS YOU THE PRODUCTS FROM THE STORE
     let {id} = useParams();
 
     useEffect(() => {
@@ -14,20 +14,14 @@ const ProductDetailsPage = () => {
             dispatch(fetchProductById(id));
         }
     }, [dispatch, id]);
-    console.log("singleProduct", singleProduct)
-
-    function handleAddProductToCart(singleProductData) {
-        console.log("singleProductData:", singleProductData)
-        dispatch(addSingleProductToCart(singleProductData));
-    }
 
     return (
         <>
-            {singleProduct &&
+            {singleProduct && !isError && <div>
                 <div className="bg-white">
                     <div className="pt-6">
                         {/*Image gallery*/}
-                        {singleProduct.images && singleProduct.images.length &&
+                        {singleProduct.images && singleProduct.images.length >= 1 &&
                             <div
                                 className="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
                                 {singleProduct.images[0] &&
@@ -37,6 +31,7 @@ const ProductDetailsPage = () => {
                                             alt="Two each of gray, white, and black shirts laying flat."
                                             className="object-contain object-center h-72"/>
                                     </div>}
+
                                 {singleProduct.images[1] && singleProduct.images[2] &&
                                     <div className="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
                                         <div className="aspect-w-3 aspect-h-2 overflow-hidden rounded-lg">
@@ -81,7 +76,7 @@ const ProductDetailsPage = () => {
                                 <div className="mt-10">
                                     <button type="submit"
                                             className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-blue-600 py-3 px-8 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-                                            onClick={() => handleAddProductToCart(singleProduct)}
+                                            onClick={()=> dispatch(addSingleProductToCart(singleProduct))}
                                     >
                                         Add to cart
                                     </button>
@@ -118,7 +113,8 @@ const ProductDetailsPage = () => {
                         </div>
                     </div>
                 </div>
-            }
+            </div>}
+            {isError && <h1>Sorry :( an Error accord my friend..</h1>}
         </>
     );
 };

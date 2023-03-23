@@ -4,7 +4,13 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend:
+    {
+      fontFamily: {
+        'heading': ['Playfair Display', 'serif'],
+        'body': ['Roboto Condensed', 'sans-serif'],
+      },
+    },
   },
   plugins: [
     require('@tailwindcss/aspect-ratio'),

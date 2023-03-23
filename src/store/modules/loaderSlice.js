@@ -1,20 +1,25 @@
-import {createSlice} from '@reduxjs/toolkit';
+import {createSlice} from '@reduxjs/toolkit'
 
 const loaderSlice = createSlice({
     name: 'loader',
     initialState: {
-        isLoading: false,
+        isLoading: false
     },
-    reducers: { // are the functions responsible for amending my state
+    reducers: { // here have functions which will amend the state only
         SET_LOADER: (state, action) => {
             state.isLoading = action.payload;
-        },
-    },
-});
+        }
+    }
+})
 
 
 const {actions, reducer} = loaderSlice;
 export default reducer;
-export const {SET_LOADER} = actions;
+const {SET_LOADER} = actions;
 
-//Actions
+// Actions
+
+export const setLoadingState = (loadingStatus) => (dispatch) => {
+    dispatch(SET_LOADER(loadingStatus));
+}
+

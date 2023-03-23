@@ -1,10 +1,9 @@
-import React from 'react';
 
 const Loader = () => {
     return (
         <>
             <div
-                className="fixed top-0 left-0 right-0 bottom-0 w-full h-screen z-50 overflow-hidden bg-gray-300 opacity-95 flex flex-col items-center justify-center">
+                className="fixed top-0 left-0 right-0 bottom-0 w-full h-screen z-50 overflow-hidden bg-gray-500 opacity-95 flex flex-col items-center justify-center">
                 <div
                     className="inline-flex items-center px-4 py-2 font-semibold leading-6 text-sm shadow rounded-md text-white bg-blue-500 hover:bg-blue-400 transition ease-in-out duration-150"
                 >
