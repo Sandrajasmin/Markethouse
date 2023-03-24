@@ -81,11 +81,3 @@ export const fetchProductById = (id) => async dispatch => {
 export const handleErrorResponse = (APIResponseStatus) => (dispatch) => {
     dispatch(SET_ERROR(APIResponseStatus));
 }
-
-
-//
-// import { createSlice } from '@reduxjs/toolkit' is a line of code used in JavaScript for importing a specific function called createSlice from the @reduxjs/toolkit library.
-//
-//     This function helps you write Redux reducers with less boilerplate code. It generates a slice of the Redux state and corresponding actions, and automatically handles the immutability of the state updates.
-//
-//     In simpler terms, this line of code allows you to use a powerful tool called createSlice to simplify the management of state in a Redux application, saving you time and effort.
