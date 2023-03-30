@@ -1,11 +1,11 @@
-import {createSlice} from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit'
 
 const loaderSlice = createSlice({
     name: 'loader',
     initialState: {
         isLoading: false
     },
-    reducers: { // here have functions which will amend the state only
+    reducers: {
         SET_LOADER: (state, action) => {
             state.isLoading = action.payload;
         }
@@ -13,13 +13,10 @@ const loaderSlice = createSlice({
 })
 
 
-const {actions, reducer} = loaderSlice;
+const { actions, reducer } = loaderSlice;
 export default reducer;
-const {SET_LOADER} = actions;
-
-// Actions
+const { SET_LOADER } = actions;
 
 export const setLoadingState = (loadingStatus) => (dispatch) => {
     dispatch(SET_LOADER(loadingStatus));
 }
-
