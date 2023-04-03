@@ -1,14 +1,13 @@
-import HeroBanner from './components/heroBanner';
-import AllProducts from '../../global/components/products';
-// import ErrorComponent from "../../components/shared/ErrorComponent";
+import AllProducts from "../../components/products.jsx";
+import HeroBanner from "../homepage/components/heroBanner";
 
 function Homepage() {
-    return (
-        <>
-        <HeroBanner />
-        <AllProducts />
-        </>
-    );
+	return (
+		<>
+			<HeroBanner />
+			<AllProducts />
+		</>
+	);
 }
 
 export default Homepage;

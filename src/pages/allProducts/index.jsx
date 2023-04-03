@@ -1,10 +1,9 @@
-import AllProducts from "../../global/components/products";
-// import ErrorComponent from "../../components/shared/ErrorComponent";
+import AllProducts from "../../components/products";
 
 function ProductsPage() {
 	return (
 		<>
-        <AllProducts />
+			<AllProducts />
 		</>
 	);
 }
